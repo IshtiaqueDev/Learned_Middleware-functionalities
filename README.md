@@ -1,7 +1,7 @@
 # Middleware Learning (Express.js)
 
 This repository contains my hands-on learning of **middleware in Express.js**.  
-It includes a small practice project (~60 lines of code) focused on understanding how middleware works in real applications.
+It includes a small practice focused on understanding how middleware works in real applications.
 
 ---
 
