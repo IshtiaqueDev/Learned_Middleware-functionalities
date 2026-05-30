@@ -11,39 +11,39 @@ app.use("/api",(req,res,next)=>{
     throw new ExpressErros(404,"Bad Request");
 })
 
-// function checkAuth(req,res,next){
-//     let {pass}=req.query;
-//     if(pass==="123"){
-//           next();   
-//     }
-//     throw new Error("ACCESS DENIED!"); 
-// }
+function checkAuth(req,res,next){
+    let {pass}=req.query;
+    if(pass==="123"){
+          next();   
+    }
+    throw new Error("ACCESS DENIED!"); 
+}
 
 
-// app.get("/api",checkAuth,(req,res)=>{
-//     res.send("Some Data"); 
-// })
+app.get("/api",checkAuth,(req,res)=>{
+    res.send("Some Data"); 
+})
 
-// app.get("/wrong",(req,res)=>{
-//     abcdd=abcd;
-// })
-// app.use((req,res,next)=>{
-//     console.log("Hi , Iam Middleware");
-//     next();
-// })
+app.get("/wrong",(req,res)=>{
+    abcdd=abcd;
+})
+app.use((req,res,next)=>{
+    console.log("Hi , Iam Middleware");
+    next();
+})
 
-// app.use((req,res,next)=>{
-//     console.log("Hi , Iam 2nd Middleware");
-//     next();
-//     console.log("This is After Middleware")
-// })
+app.use((req,res,next)=>{
+    console.log("Hi , Iam 2nd Middleware");
+    next();
+    console.log("This is After Middleware")
+})
 
 //Logger Information
-// app.use((req,res,next)=>{   
-//     req.responseTime=new Date(Date.now()).toString();
-//     console.log(req.method,req.path,req.responseTime,req.hostname);
-//     return next();
-// });
+app.use((req,res,next)=>{   
+    req.responseTime=new Date(Date.now()).toString();
+    console.log(req.method,req.path,req.responseTime,req.hostname);
+    return next();
+});
 
 app.get("/err",(req,res)=>{
     abscd=abcd
@@ -79,6 +79,6 @@ app.get("/",(req,res)=>{
 
 
 //Page not found
-// app.use((req,res)=>{
-//     res.send("<h1>Error 404 Page not Found !</h1>")
-// })
+app.use((req,res)=>{
+    res.send("<h1>Error 404 Page not Found !</h1>")
+})
